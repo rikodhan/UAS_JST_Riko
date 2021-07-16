@@ -6,7 +6,7 @@ const model = require('./sdk/model.js');
 
 // Bot Setting
 const TelegramBot = require('node-telegram-bot-api');
-const token = '1630793924:AAGJ7WmAw1_qC_sVqv_ZLIxFNHFI6UtjcBs'
+const token = '1720574998:AAGP4nmNu6slXkl5NeVMyGicDc13CxCW4wU'
 const bot = new TelegramBot(token, {polling: true});
 
 
@@ -15,8 +15,7 @@ bot.onText(/\/start/, (msg) => {
     console.log(msg)
     bot.sendMessage(
         msg.chat.id,
-        `hello, welcome...\n
-        click /predict`
+        `Halo, Riko!\n click /predict`
     );   
 });
 
@@ -25,7 +24,7 @@ state = 0;
 bot.onText(/\/predict/, (msg) => { 
     bot.sendMessage(
         msg.chat.id,
-        `masukan nilai x1|x1|x3 contoh 9|9|9`
+        `Masukan nilai x1 X2 dan X3 seperti contoh berikut! 9|9|9`
     );   
     state = 1;
 });
@@ -45,15 +44,15 @@ bot.on('message', (msg) => {
          ).then((jres)=>{
             bot.sendMessage(
                 msg.chat.id,
-                `nilai y1 yang diprediksi adalah ${jres[0]}`
+                `Nilai Y1 yang di predisi oleh Deep Neural Network adalah ${jres[0]}`
             );
              bot.sendMessage(
                 msg.chat.id,
-                `nilai y2 yang diprediksi adalah ${jres[1]}`
+                `Nilai Y2 yang di predisi oleh Deep Neural Network adalah ${jres[1]}`
             );
              bot.sendMessage(
                 msg.chat.id,
-                `nilai y3 yang diprediksi adalah ${jres[2]}`
+                `Nilai Y3 yang di predisi oleh Deep Neural Network adalah ${jres[2]}`
             );
         })
      }else{
